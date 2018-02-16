@@ -1,7 +1,22 @@
 import React from 'react'
 
-export default props => (
-    <div>
-        <h2>List</h2>
-    </div>
-)
+export default props => {
+    const renderRows = () =>{
+        const list = props.list || []
+        return list.map(todo => (
+            <tr key={todo._id}>
+                <td>{todo.description}</td>
+            </tr>
+        ))
+    }
+    return (
+        <table className='table'>
+            <thead>
+                <tr><th>Descricao</th></tr>
+            </thead>
+            <tbody>
+                {renderRows()}
+            </tbody>
+        </table>
+    )
+}
